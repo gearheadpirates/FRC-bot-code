@@ -6,7 +6,7 @@ import frc.robot.Robot;
 import frc.robot.subsystems.ElevatorSubsystem;
 
 /**
- * An example command.  You can replace me with your own command TEST.
+ * An example command.  You can replace me with your own command.
  */
 public class DriveElevatorCommand extends Command {
     private double speed;
