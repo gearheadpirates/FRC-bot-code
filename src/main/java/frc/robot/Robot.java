@@ -137,7 +137,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     //make input progressively move towards max/min
     double xSpeed = Math.pow(OI.controller.getY(GenericHID.Hand.kLeft), 3);
-    double zRot = Math.pow((OI.controller.getX(GenericHID.Hand.kRight)), 3);
+    double zRot = Math.pow((OI.controller.getX(GenericHID.Hand.kLeft)), 3);
     drivetrain.arcadeDrive((xSpeed * -1.0) * speedScale, zRot * speedScale);
     Scheduler.getInstance().run();
   }
