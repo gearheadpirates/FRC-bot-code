@@ -142,18 +142,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -1.0 * speedScale;
     double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) * speedScale;
-    
-    if(forwardSpeed > 0) {
-      forwardSpeed = Math.min(forwardSpeed, lastForward + maxForward);
-    } else {
-      forwardSpeed = Math.max(forwardSpeed, lastForward - maxForward);
-    }
 
-    if(rotationSpeed > 0) {
-      rotationSpeed = Math.min(rotationSpeed, lastRotation + maxRotation);
-    } else {
-      rotationSpeed = Math.max(rotationSpeed, lastRotation - maxRotation);
-    }
+    forwardSpeed = Math.min(forwardSpeed, lastForward + maxForward);
+    rotationSpeed = Math.min(rotationSpeed, lastRotation + maxRotation);
 
     drivetrain.arcadeDrive(forwardSpeed, rotationSpeed);
 
