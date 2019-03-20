@@ -30,8 +30,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 public class Robot extends TimedRobot {
   private static double lastForward = 0;
   private static double lastRotation = 0;
-  private static double maxForward = 0.025;
-  private static double maxRotation = 0.025;
+  private static double maxForward = 0.02;
+  private static double maxRotation = 0.02;
 
   public static IntakeSubsystem intakeSubsystem;
   public static ElevatorSubsystem elevatorSubsystem;
@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
   public Talon rightDriveMotor = new Talon(RobotMap.RIGHT_DRIVE_MOTOR);
   public DifferentialDrive drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
 
-  public double speedScale = 0.8;
+  public double speedScale = 0.9;
 
 
   /**
@@ -140,7 +140,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -.8 * speedScale;
+    double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -1.0 * speedScale;
     double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) * speedScale;
     
     if(forwardSpeed > 0) {
