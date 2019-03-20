@@ -30,8 +30,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 public class Robot extends TimedRobot {
   private static double lastForward = 0;
   private static double lastRotation = 0;
-  private static double maxForward = 0.1;
-  private static double maxRotation = 0.1;
+  private static double maxForward = 0.02;
+  private static double maxRotation = 0.02;
 
   public static IntakeSubsystem intakeSubsystem;
   public static ElevatorSubsystem elevatorSubsystem;
@@ -141,10 +141,10 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -1.0 * speedScale;
-    double rotationSpeed = OI.controller.getY(GenericHID.Hand.kRight) * speedScale;
+    double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) * speedScale;
 
     forwardSpeed = Math.min(forwardSpeed, lastForward + maxForward);
-    rotationSpeed = Math.min(rotationSpeed, lastRotation + maxRotation);
+    rotationSpeed = Math.max(rotationSpeed, lastRotation + maxRotation);
 
     drivetrain.arcadeDrive(forwardSpeed, rotationSpeed);
 
