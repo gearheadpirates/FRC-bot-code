@@ -55,6 +55,9 @@ public class OI {
 
   public void bindButtons() {
     x.whileHeld(new GatherCargoCommand(0.4));
+    x.whileHeld(new ActivateArmCommand());
+    x.whenReleased(new RetractArmCommand());
+
     y.whileHeld(new ShootCommand(-1.0));
 
     b.whenPressed(new DriveElevatorUpCommand(0.5));

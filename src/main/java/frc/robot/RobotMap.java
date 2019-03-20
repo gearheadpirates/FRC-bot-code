@@ -31,12 +31,16 @@ public class RobotMap {
   // Intake motors
   public static int LEFT_INTAKE = 3;
   public static int RIGHT_INTAKE = 4;
+  public static final int INTAKE_ARM_SWEEP_MOTOR = 8;
+  public static final int INTAKE_ARM_ENGAGE_MOTOR = 9;
 
   // Elevator
   public static int ELEVATOR_MOTOR = 1;
   public static int BRAKE_MOTOR = 6;
 
   // Limit switch
+  public static final int ARM_DOWN_LIMIT_SWITCH = 4;
+  public static final int ARM_UP_LIMIT_SWITCH = 5;
   public static int BALL_INTAKE_LIMIT_SWITCH = 0;
   public static int BRAKE_LIMIT_SWITCH = 1;
 
