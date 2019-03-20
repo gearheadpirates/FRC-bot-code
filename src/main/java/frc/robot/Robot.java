@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   public Talon rightDriveMotor = new Talon(RobotMap.RIGHT_DRIVE_MOTOR);
   public DifferentialDrive drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
 
-  public double speedScale = 0.9;
+  public double speedScale = 0.75;
 
 
   /**
@@ -135,7 +135,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    drivetrain.arcadeDrive((OI.controller.getY(GenericHID.Hand.kLeft) * -1.0) * speedScale, (OI.controller.getX(GenericHID.Hand.kRight)) * speedScale);
+    //make input progressively move towards max/min
+    double xSpeed = Math.pow(OI.controller.getY(GenericHID.Hand.kLeft), 3);
+    double zRot = Math.pow((OI.controller.getX(GenericHID.Hand.kLeft)), 3);
+    drivetrain.arcadeDrive((xSpeed * -.75) * speedScale, zRot * speedScale);
     Scheduler.getInstance().run();
   }
 
