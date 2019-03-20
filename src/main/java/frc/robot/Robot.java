@@ -132,6 +132,7 @@ public class Robot extends TimedRobot {
 
   /**
    * This function is called periodically during operator control.
+   * Changed xSpeed from -1 to .9
    */
   @Override
   public void teleopPeriodic() {
