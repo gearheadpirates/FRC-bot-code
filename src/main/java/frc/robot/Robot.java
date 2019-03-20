@@ -144,7 +144,7 @@ public class Robot extends TimedRobot {
     double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) * speedScale;
 
     forwardSpeed = Math.min(forwardSpeed, lastForward + maxForward);
-    rotationSpeed = Math.max(rotationSpeed, lastRotation + maxRotation);
+    rotationSpeed = Math.min(rotationSpeed, lastRotation + maxRotation);
 
     drivetrain.arcadeDrive(forwardSpeed, rotationSpeed);
 
