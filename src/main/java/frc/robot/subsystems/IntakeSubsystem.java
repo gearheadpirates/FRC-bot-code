@@ -27,7 +27,7 @@ public class IntakeSubsystem extends Subsystem {
   }
 
   public void setIntakeSpeed(double speed) {
-    leftIntake.set(-1.0 * speed);
+    leftIntake.set(1.0 * speed);
     rightIntake.set(speed);
   }
 

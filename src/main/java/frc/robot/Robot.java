@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
   public Talon rightDriveMotor = new Talon(RobotMap.RIGHT_DRIVE_MOTOR);
   public DifferentialDrive drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
 
-  public double speedScale = 0.8;
+  public double speedScale = 0.7;
 
 
   /**
@@ -139,8 +139,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -.8 * speedScale;
-    double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) * speedScale;
+    double forwardSpeed = OI.controller.getY(GenericHID.Hand.kLeft) * -1 * speedScale;
+    double rotationSpeed = OI.controller.getX(GenericHID.Hand.kLeft) *  speedScale;
     
     if(forwardSpeed > 0) {
       forwardSpeed = Math.min(forwardSpeed, lastForward + maxForward);

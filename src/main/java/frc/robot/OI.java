@@ -46,21 +46,19 @@ public class OI {
 
   public static XboxController controller = new XboxController(0);
   public JoystickButton x = new JoystickButton(controller, 3);
-  public JoystickButton y = new JoystickButton(controller, 4);
-  public JoystickButton a = new JoystickButton(controller, 1);
-  public JoystickButton b = new JoystickButton(controller, 2);
+  public JoystickButton y = new JoystickButton(controller, 1);
+  public JoystickButton a = new JoystickButton(controller, 9);
+  public JoystickButton b = new JoystickButton(controller, 10);
   public OI() {
     
   }
 
   public void bindButtons() {
-    x.whileHeld(new GatherCargoCommand(0.4));
-    y.whileHeld(new ShootCommand(-1.0));
+    x.whileHeld(new GatherCargoCommand(-1));
+    y.whileHeld(new ShootCommand(1));
 
-    b.whenPressed(new DriveElevatorUpCommand(0.5));
-    b.whenReleased(new EngadeBrakeMotor(-0.9, true));
-
-    a.whenPressed(new EngadeBrakeMotor(0.9, false));
-    a.whenReleased(new EngadeBrakeMotor(-0.9, true));
+    b.whileHeld(new DriveElevatorUpCommand(-1));
+    a.whileHeld(new DriveElevatorDownCommand(1));
+    
   }
 }
